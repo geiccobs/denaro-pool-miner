@@ -93,12 +93,10 @@ func worker(start int, step int, res MiningInfoResult, address string) {
 
 	var shareChunk string
 
-	if len(chunk) > shareDifficulty {
-		shareChunk = chunk[:shareDifficulty]
-	} else {
-		stopWorkers()
-		return
+	if shareDifficulty > idifficulty {
+		shareDifficulty = idifficulty
 	}
+	shareChunk = chunk[:shareDifficulty]
 
 	charset := "0123456789abcdef"
 	if decimal > 0 {
