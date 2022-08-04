@@ -177,6 +177,7 @@ func worker(start int, step int, res MiningInfoResult, address string) {
 					log.Println("SHARE ACCEPTED")
 				} else {
 					log.Println("SHARE NOT ACCEPTED")
+					log.Println(string(req.Body()))
 					stopWorkers()
 					return
 				}

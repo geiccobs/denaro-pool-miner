@@ -22,7 +22,9 @@ GOOS=windows GOARCH=386 go build -o $DIR/pool-miner-win32.exe
 echo "compiled for windows"
 
 # compile for macos
-# 64 bit
-GOOS=darwin GOARCH=amd64 go build -o $DIR/pool-miner-macos64
+# amd 64 bit
+GOOS=darwin GOARCH=amd64 go build -o $DIR/pool-miner-macos-amd64
+# arm 64 bit
+GOOS=darwin GOARCH=arm64 go build -o $DIR/pool-miner-macos-arm64
 
 echo "compiled for macos"
