@@ -18,9 +18,9 @@ go build
 
 ## Usage
 
-[Download latest binary](https://github.com/geiccobs/denaro-pool-miner/releases) according to your system architecture. 
+[Download latest binary](https://github.com/geiccobs/denaro-pool-miner/releases/latest) according to your system architecture. 
   
-Use `./pool-miner-{yourarchitecture} -help` to see the full list of arguments.
+Use `./pool-miner-{yourarchitecture} -help` to see the full list of arguments.  
 Notice: `share_difficulty` should be adjusted according to your hashrate: if you see a lot of shares accepted, increment it.
 
 ### Running on Linux
