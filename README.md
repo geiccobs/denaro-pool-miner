@@ -18,27 +18,25 @@ go build
 
 ## Usage
 
-`share_difficulty` should be adjusted according to your hashrate: if you see a lot of shares accepted, increment it.  
+[Download latest binary](https://github.com/geiccobs/denaro-pool-miner/releases) according to your system architecture. 
   
-Use `./pool-miner-{yourarchitecture} -help` to see the full list of arguments
+Use `./pool-miner-{yourarchitecture} -help` to see the full list of arguments.
+Notice: `share_difficulty` should be adjusted according to your hashrate: if you see a lot of shares accepted, increment it.
 
 ### Running on Linux
 
 ```bash
-cd builds/
 ./pool-miner-linux64 -address youraddress -workers corescount -share_difficulty 6
 ```
 
 ### Running on Windows
 
 ```bash
-cd builds/
 start pool-miner-win64.exe -address youraddress -workers corescount -share_difficulty 6
 ```
 
 ### Running on MacOS
 
 ```bash
-cd builds/
-./pool-miner-macos64 -address youraddress -workers corescount -share_difficulty 6
+./pool-miner-macos-amd64 -address youraddress -workers corescount -share_difficulty 6
 ```
