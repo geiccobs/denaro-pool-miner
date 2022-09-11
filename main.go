@@ -205,7 +205,7 @@ func worker(start int, step int, res MiningInfoResult, address string) {
 			log.Println(hex.EncodeToString(_hex))
 
 			req := POST(
-				POOL_URL+"push_block",
+				NODE_URL+"push_block",
 				map[string]interface{}{
 					"block_content": hex.EncodeToString(_hex),
 					"txs":           txs,
