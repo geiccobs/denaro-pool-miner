@@ -28,3 +28,11 @@ GOOS=darwin GOARCH=amd64 go build -o $DIR/pool-miner-macos-amd64
 GOOS=darwin GOARCH=arm64 go build -o $DIR/pool-miner-macos-arm64
 
 echo "compiled for macos"
+
+# compile for android
+# amd 64 bit
+CGO_ENABLED=0 GOOS=android GOARCH=amd64 go build -o $DIR/pool-miner-android-amd64
+# arm 64 bit
+CGO_ENABLED=0 GOOS=android GOARCH=arm64 go build -o $DIR/pool-miner-android-arm64
+
+echo "compiled for android"
