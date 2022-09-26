@@ -73,6 +73,14 @@ func worker(start int, step int, res MiningInfoResult, address string) {
 	var idifficulty int = int(difficulty)
 	var shareDifficulty int = SHARE_DIFFICULTY
 
+	defer func() {
+		if r := recover(); r != nil {
+			log.Printf("Recovered from: %v\n", r)
+			stopWorkers()
+			return
+		}
+	}()
+
 	_, decimal := math.Modf(difficulty)
 
 	lastBlock := res.LastBlock
@@ -232,7 +240,7 @@ func main() {
 
 	// ask for address if not inserted as flag
 	if len(ADDRESS) == 0 {
-		fmt.Print("Insert your address (avaiable at https://t.me/DenaroCoinBot): ")
+		fmt.Print("Insert your address (available at https://t.me/DenaroCoinBot): ")
 		fmt.Scan(&ADDRESS)
 	}
 
