@@ -6,6 +6,7 @@ import (
 	"encoding/hex"
 	"encoding/json"
 	"flag"
+	"fmt"
 	"log"
 	"math"
 	"net"
@@ -29,9 +30,9 @@ var (
 		},
 	}
 
-	ADDRESS          = "E1o5MVMtHLMys1fKutkSYWFqoh2o5iGLtXB487fifJa9V" // what a random address tho
-	WORKERS          = 4                                               // concurrent workers to spawn
-	SHARE_DIFFICULTY = 0                                               // 0 means that it'll be generated
+	ADDRESS          = "" // E1o5MVMtHLMys1fKutkSYWFqoh2o5iGLtXB487fifJa9V donations are always accepted
+	WORKERS          = 4  // concurrent workers to spawn
+	SHARE_DIFFICULTY = 0  // 0 means that it'll be generated
 
 	NODE_URL = "https://denaro-node.gaetano.eu.org/" // down 24/7
 	POOL_URL = "https://denaro-pool.gaetano.eu.org/" // never down, nobody knows it
@@ -233,6 +234,12 @@ func main() {
 	flag.IntVar(&SHARE_DIFFICULTY, "share_difficulty", SHARE_DIFFICULTY, "pretty self descriptive")
 
 	flag.Parse()
+
+	// ask for address if not inserted as flag
+	if len(ADDRESS) == 0 {
+		fmt.Print("Insert your address (avaiable at https://t.me/DenaroCoinBot): ")
+		fmt.Scan(&ADDRESS)
+	}
 
 	var reqP MiningAddress
 
