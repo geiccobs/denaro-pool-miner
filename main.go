@@ -32,7 +32,7 @@ var (
 
 	ADDRESS          = "" // E1o5MVMtHLMys1fKutkSYWFqoh2o5iGLtXB487fifJa9V donations are always accepted
 	WORKERS          = 4  // concurrent workers to spawn
-	SHARE_DIFFICULTY = 0  // 0 means that it'll be generated
+	SHARE_DIFFICULTY = 6  // share difficulty (pretty self descriptive)
 
 	NODE_URL = "https://denaro-node.gaetano.eu.org/" // down 24/7
 	POOL_URL = "https://denaro-pool.gaetano.eu.org/" // never down, nobody knows it
@@ -71,14 +71,9 @@ func worker(start int, step int, res MiningInfoResult, address string) {
 
 	var difficulty float64 = res.Difficulty
 	var idifficulty int = int(difficulty)
-	var shareDifficulty int = idifficulty - 2
+	var shareDifficulty int = SHARE_DIFFICULTY
 
 	_, decimal := math.Modf(difficulty)
-
-	// if not 0 -> we've set our share_difficulty
-	if SHARE_DIFFICULTY != 0 {
-		shareDifficulty = SHARE_DIFFICULTY
-	}
 
 	lastBlock := res.LastBlock
 	if lastBlock.Hash == "" {
